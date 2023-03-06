@@ -1,26 +1,26 @@
-  console.log();
-   let nombre = prompt ("Introduci tu nombre");
-  let apellido = prompt ("Introduci tu apellido");
-  let edad = parseInt(prompt("introduci tu edad"));
-  let instrumento;
-
-  if (edad <= 18){
-    alert(" sos menor de edad, para registrarte deberas ingresar los datos de un mayor");
+  function inscribirseEnMusica(nombre, apellido, edad) {
+    if (isNaN(edad) || edad <= 0) {
+      return "Por favor, ingresa una edad válida.";
+    } else if (edad <= 18) {
+      return "sos menor de edad, para registrarte deberás ingresar los datos de un mayor.";
     } else {
-        alert("Bienvenido a la escuela de musica " + nombre + "!");
+      let instrumento = prompt("¿Qué instrumento te gustaría aprender? Saxo, Piano, o Clarinete?").toLowerCase();
+      if (instrumento === "piano") {
+        return nombre + ", las clases de piano comenzarán el 5 de junio.";
+      } else if (instrumento === "saxo") {
+        return nombre + ", las clases de saxo comenzarán el 15 de mayo.";
+      } else if (instrumento === "clarinete") {
+        return "Lo siento, en esta escuela no enseñamos clarinete.";
+      } else {
+        return "Por favor, ingresa un instrumento válido.";
+      }
     }
-    instrumento = prompt("que instrumento te gustaria aprender?,saxo,piano,clarinete");
+  }
+  let nombre = prompt("Ingresa tu nombre");
+let apellido = prompt("Ingresa tu apellido");
+let edad = parseInt(prompt("Ingresa tu edad"));
 
-    if (instrumento === "piano"){
-        alert( nombre + " las clases de piano comenzaran a partir del 5 de junio");
-     }
-    if (instrumento === "saxo"){
-        alert( nombre + " las clases de saxo comenzaran a partir del 15 de mayo");   
-    }
-    if (instrumento === "clarinete"){
-        alert( nombre + "En esta escuela no se enseña clarinete"); 
-    }
-
+alert(inscribirseEnMusica(nombre, apellido, edad));
 
 
 
